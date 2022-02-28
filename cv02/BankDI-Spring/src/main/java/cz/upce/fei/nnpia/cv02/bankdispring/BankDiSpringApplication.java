@@ -1,7 +1,6 @@
 package cz.upce.fei.nnpia.cv02.bankdispring;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.SpringApplication;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.stereotype.Component;
 
@@ -9,10 +8,10 @@ import org.springframework.stereotype.Component;
 public class BankDiSpringApplication {
 
     @Autowired
-    UserService userService;
+    UserAccountService userAccountService;
 
     @Autowired
-    AccountService accountService;
+    ProfileService profileService;
 
     public static void main(String[] args) {
 
@@ -23,8 +22,8 @@ public class BankDiSpringApplication {
     }
 
     private void process() {
-        userService.createUser();
-        accountService.createAccount();
+        userAccountService.createUser();
+        profileService.createProfile();
     }
 
 }

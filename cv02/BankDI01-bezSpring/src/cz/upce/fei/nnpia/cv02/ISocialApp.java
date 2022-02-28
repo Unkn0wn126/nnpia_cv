@@ -1,5 +1,5 @@
 package cz.upce.fei.nnpia.cv02;
 
-public interface IBankApp {
+public interface ISocialApp {
     void process();
 }

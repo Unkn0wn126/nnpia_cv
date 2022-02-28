@@ -2,8 +2,8 @@ package cz.upce.fei.nnpia.cv02;
 
 public class DependencyInjector {
     //navrhovy vzor singleton
-    private static UserService userService;
-    private static AccountService accountService;
+    private static UserAccountService userAccountService;
+    private static ProfileService profileService;
     private static EmailService emailService;
 
     private  static  EmailService getEmailService(){
@@ -13,22 +13,22 @@ public class DependencyInjector {
         return  emailService;
     }
 
-    private static UserService getUserService(){
-        if (userService == null){
-            userService = new UserService(getEmailService());
+    private static UserAccountService getUserService(){
+        if (userAccountService == null){
+            userAccountService = new UserAccountService(getEmailService());
             // lazy object creation
         }
-        return userService;
+        return userAccountService;
     }
 
-    private static AccountService getAccountService(){
-        if (accountService == null){
-            accountService = new AccountService(getEmailService());
+    private static ProfileService getAccountService(){
+        if (profileService == null){
+            profileService = new ProfileService(getEmailService());
         }
-        return accountService;
+        return profileService;
     }
 
-    public static IBankApp getBankApp() {
-        return new BankApp(getUserService(), getAccountService());
+    public static ISocialApp getBankApp() {
+        return new SocialApp(getUserService(), getAccountService());
     }
 }

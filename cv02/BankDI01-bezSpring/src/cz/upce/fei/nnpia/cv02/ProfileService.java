@@ -1,14 +1,14 @@
 package cz.upce.fei.nnpia.cv02;
 
-public class AccountService {
+public class ProfileService {
     EmailService emailService;
 
-    public AccountService(EmailService emailService) {
+    public ProfileService(EmailService emailService) {
         this.emailService = emailService;
     }
 
-    public void createAccount(){
+    public void createProfile(){
         emailService.sendEmail("lukas.milar@upce.cz",
-                "Bank account created, good luck!");
+                "User profile created!");
     }
 }
